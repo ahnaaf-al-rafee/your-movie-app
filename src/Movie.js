@@ -1,17 +1,23 @@
 import { List, ListItem, ListItemText } from "@material-ui/core";
 import React from "react";
+import DeleteIcon from "@material-ui/icons/Delete";
 
-import "./Movie.css"
+import db from "./firebase";
+import "./Movie.css";
 
-const Movie = ({ name, price }) => {
+const Movie = ({ movie, name, price }) => {
+  // console.log(movie);
+  let str = "$";
   return (
     <div className="movie">
       <List>
         <ListItem>
-        <ListItemText
-              primary={name}
-              secondary= {price} 
-            />
+          <ListItemText primary={name} secondary= {str.concat(price)} />
+          <DeleteIcon
+            onClick={(event) => {
+              db.collection("movies").doc(movie.id).delete();
+            }}
+          />
         </ListItem>
       </List>
     </div>
