@@ -1,11 +1,15 @@
-.nav{
+/* .nav{
     display: flex;
     justify-content: space-around;
     background-color: rgb(42, 49, 73);
     color: white;
     align-items: center;
-}
-
+} */
+/* 
 .movie__count{
     color: white;
+} */
+
+.nav_right{
+    margin-left: auto;
 }
